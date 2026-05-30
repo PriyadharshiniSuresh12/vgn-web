@@ -13,17 +13,33 @@ body{
 /* TOP HEADER */
 
 .top-header{
-  background:#001b5e;
-  color:white;
-  padding:10px 5%;
+  background:#0b1c4a;
+  color:#ddd;
+  padding:8px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
+  font-size: 14px;
 }
 
-.top-left span{
-  margin-right:20px;
+.top-left .contact-group{
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.top-left .contact-link{
+  color:#ddd;
+  text-decoration:none;
+  display:inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.top-left .contact-link:hover{
+  color:#ffd000;
+  transform: translateY(-2px);
+  text-decoration: underline;
 }
 
 .top-right a{
@@ -53,36 +69,51 @@ body{
   width:100px;
 }
 
+.school-title{
+  text-align: left;
+}
+
 .school-title h1{
    color:#081d66;
-
-   font-size:25px;
-
-  
-
-   text-align:center;
+   font-size:24px;
+   font-weight: 700;
 }
 
 .school-title h2{
   color:#22358d;
+  font-size: 18px;
   margin-top:5px;
 }
 
 .school-title p{
   margin-top:8px;
-  color:#555;
+  color:#666;
+  font-size: 14px;
 }
 
 .admission-box{
-  background:linear-gradient(135deg,#ff0000,#ffbf00);
-  padding:20px 30px;
-  border-radius:15px;
+  background:linear-gradient(135deg, #ff416c, #ff4b2b);
+  padding:15px 30px;
+  border-radius:10px;
   color:white;
   text-align:center;
+  box-shadow: 0 8px 20px rgba(255, 75, 43, 0.4);
+  transition: transform 0.3s;
+}
+
+.admission-box:hover{
+  transform: translateY(-3px);
 }
 
 .admission-box h3{
-  font-size:30px;
+  font-size:22px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.admission-box p{
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* NAVBAR */
@@ -119,9 +150,9 @@ nav ul li a:hover{
 /* HERO */
 
 .hero{
-  height:85vh;
+  height:80vh;
   background:
-  linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+  linear-gradient(to right, rgba(8, 29, 102, 0.8), rgba(0, 0, 0, 0.4)),
   url('background\ vg.jpeg') no-repeat;
   
 
@@ -138,13 +169,15 @@ nav ul li a:hover{
 }
 
 .hero-content h1{
-  font-size:70px;
+  font-size:60px;
+  font-weight: 700;
   margin-bottom:20px;
 }
 
 .hero-content p{
-  font-size:28px;
-  margin-bottom:30px;
+  font-size:22px;
+  font-weight: 300;
+  margin-bottom:40px;
 }
 
 .hero-buttons{
@@ -159,16 +192,28 @@ nav ul li a:hover{
   text-decoration:none;
   border-radius:50px;
   font-weight:600;
+  transition: all 0.3s ease;
 }
 
 .btn1{
   background:#ffd000;
   color:black;
 }
+.btn1:hover{
+  background:#e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 208, 0, 0.4);
+}
 
 .btn2{
+  background:transparent;
+  color:white;
+  border: 2px solid white;
+}
+.btn2:hover{
   background:white;
   color:#081d66;
+  transform: translateY(-2px);
 }
 
 /* CARDS */
@@ -180,17 +225,35 @@ nav ul li a:hover{
   gap:30px;
 }
 
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .card{
   background:white;
   padding:30px;
   border-radius:20px;
   text-align:center;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
+  transition:all 0.3s ease;
+  animation: cardEnter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
 
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.5s; }
+.card:nth-child(4) { animation-delay: 0.7s; }
+
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(8, 29, 102, 0.15);
 }
 
 .card h3{
@@ -227,19 +290,47 @@ nav ul li a:hover{
   line-height:1.9;
   color:#555;
 }
-/*about*/
-.about-school{
-  padding:80px 5%;
-  background:white;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:40px;
-  align-items:center;
+/* About School */
+.about-school {
+  padding: 80px 5%;
+  background: #fcfcfc;
+  text-align: center;
 }
-.about-school img{
-  width:800px;
- 
+
+.about-school div {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-school p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 40px;
+  text-align: justify;
+  animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.about-school img {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards 0.2s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ACHIEVEMENTS */
@@ -409,29 +500,8 @@ footer{
 /* Tablets */
 @media screen and (max-width: 992px){
 
-    nav{
-        padding:15px 20px;
-        gap:15px;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    nav a{
-        font-size:16px;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-        padding:40px 20px;
-    }
-
-    .hero img{
-        width:80%;
-    }
-
-    .hero-content{
-        width:100%;
+    .hero-content h1 {
+        font-size: 50px;
     }
 
     .cards{
@@ -439,147 +509,137 @@ footer{
         gap:20px;
     }
 
-    .gallery{
+    .gallery-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .about-container,
-    .academics-container,
-    .facility-container{
-        flex-direction:column;
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about img {
+        width: 80%;
+    }
+
+    .about-school img {
+        width: 100%;
     }
 
     section{
         padding:60px 20px;
     }
-
-    h1{
-        font-size:38px;
-    }
-
-    h2{
-        font-size:28px;
-    }
-
-    p{
-        font-size:16px;
-        line-height:1.7;
-    }
 }
-
 
 /* Mobile Devices */
 @media screen and (max-width: 768px){
 
-    nav{
-        flex-direction:column;
-        align-items:center;
+    /* Top Header */
+    .top-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .top-left span {
+        display: block;
+        margin: 5px 0;
     }
 
-    nav a{
-        display:block;
-        width:100%;
-        text-align:center;
-        padding:10px;
+    /* Main Header */
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .logo-area {
+        flex-direction: column;
+    }
+    .school-title h1 {
+        font-size: 22px;
+    }
+    .school-title h2 {
+        font-size: 16px;
+    }
+    .school-title p {
+        font-size: 14px;
     }
 
+    /* Hero */
     .hero{
-        padding:30px 15px;
+        height: auto;
+        padding: 60px 20px;
+    }
+    .hero-content h1{
+        font-size:36px;
+    }
+    .hero-content p{
+        font-size:18px;
+    }
+    .hero-buttons{
+        flex-direction: column;
+    }
+    .hero-buttons a{
+        width: 100%;
     }
 
-    .hero h1{
-        font-size:26px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .hero img{
-        width:100%;
+    /* Sections */
+    .section-title {
+        font-size: 32px;
     }
 
     .cards{
         grid-template-columns:1fr;
     }
 
-    .gallery{
+    .gallery-grid{
         grid-template-columns:1fr;
     }
 
-    .card{
-        width:100%;
+    .facility-grid, .Classroom-grid {
+        grid-template-columns: 1fr;
     }
 
-    .about-image img,
-    .facility-image img,
-    .academics-image img{
-        width:100%;
+    .about img {
+        width: 100%;
     }
 
-    table{
-        display:block;
-        overflow-x:auto;
+    video {
+        width: 100%;
+        border-radius: 20px;
     }
 
-    iframe{
-        width:100%;
-        height:300px;
+    .admission h2 {
+        font-size: 32px;
     }
-
-    footer{
-        text-align:center;
-        padding:20px;
-    }
-
-    button{
-        width:100%;
+    .admission p {
+        font-size: 18px;
     }
 }
-
 
 /* Small Mobile */
 @media screen and (max-width: 480px){
 
-    h1{
-        font-size:26px;
+    .school-title h1{
+        font-size:18px;
     }
 
-    h2{
-        font-size:22px;
-    }
-
-    p{
+    .school-title h2{
         font-size:14px;
     }
 
-    nav{
-        padding:10px;
+    .hero-content h1{
+        font-size:28px;
     }
 
-    nav a{
-        font-size:14px;
+    .section-title {
+        font-size: 26px;
     }
 
-    section{
-        padding:40px 15px;
+    .about-text h2 {
+        font-size: 26px;
     }
-
-    .hero{
-        padding-top:20px;
-    }
-
-    .hero button{
-        width:100%;
-        padding:12px;
-    }
-
-    .card{
-        padding:15px;
-    }
-
-    img{
-        max-width:100%;
-        height:auto;
+    
+    .admission h2 {
+        font-size: 26px;
     }
 }
